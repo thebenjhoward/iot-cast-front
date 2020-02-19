@@ -1,0 +1,10 @@
+[
+    {
+        "type" : "moduleA",
+        "text" : "Hello There"
+    },
+    {
+        "type" : "moduleB",
+        "text" : "General Kenobi!"
+    }
+]
