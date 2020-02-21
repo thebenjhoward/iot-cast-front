@@ -17,7 +17,8 @@ nextApp.prepare().then(() => {
 
     // add api endpoints
     app.use('/api/news', require('./api/news'));
-    app.use('/i', express.static(__dirname + '/img'))
+    app.use('/api/layout', require('./api/layout'));
+    app.use('/i', express.static(__dirname + '/img'));
     
     app.get('*', (req, res) => {
         return (handle(req, res));
@@ -26,8 +27,6 @@ nextApp.prepare().then(() => {
     app.listen(PORT, (err) => {
         if(err) throw err;
         console.log(`Ready at http://localhost:${PORT}`);
-
-
     });
 
 });

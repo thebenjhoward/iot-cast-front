@@ -11,7 +11,6 @@ class NewsBlock extends React.Component {
     constructor() {
         super();
         this.state = { fetched: false };
-
     }
 
     componentDidUpdate() {
@@ -26,12 +25,9 @@ class NewsBlock extends React.Component {
     }
 
     render() {
-        console.log("rendered with state");
-        console.log(this.state);
         if(!this.state.fetched) {
             fetch("http://localhost:3001/api/news").then(res => res.json())
             .then((data) => {
-                //console.log(data);
                 this.updateNews(data);
             })
             .catch((err) => {
