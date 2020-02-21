@@ -6,5 +6,13 @@
     {
         "type" : "moduleB",
         "text" : "General Kenobi!"
+    },
+    {
+        "type" : "moduleA",
+        "text" : "Hello There"
+    },
+    {
+        "type" : "moduleA",
+        "text" : "Hello There"
     }
 ]
