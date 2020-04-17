@@ -18,6 +18,9 @@ nextApp.prepare().then(() => {
     // add api endpoints
     app.use('/api/news', require('./api/news'));
     app.use('/api/layout', require('./api/layout'));
+    app.use('/api/nasa', require('./api/nasa'));
+    app.use('/api/joke', require('./api/joke'));
+    app.use('/api/cats', require('./api/cats'));
     app.use('/i', express.static(__dirname + '/img'));
     
     app.get('*', (req, res) => {

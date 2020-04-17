@@ -2,19 +2,18 @@
 import "./NewsItem.scss";
 import React from 'react';
 
+function trim(str) {
+    var maxLength = 200;
+    if (str.length > maxLength) {
+        var trimmedStr = str.substr(0, maxLength);
+        trimmedStr = trimmedStr.substr(0, Math.min(trimmedStr.length, trimmedStr.lastIndexOf(" ")));
+        return trimmedStr + "...";
+    } else {
+        return str;
+    }
+};
+
 class NewsItem extends React.Component {
-
-    trim(str) {
-        var maxLength = 200;
-        if (str.length > maxLength) {
-            var trimmedStr = str.substr(0, maxLength);
-            trimmedStr = trimmedStr.substr(0, Math.min(trimmedStr.length, trimmedStr.lastIndexOf(" ")));
-            return trimmedStr + "...";
-        } else {
-            return str;
-        }
-    };
-
     render() {
         var article = this.props.article;
         return (
@@ -27,7 +26,7 @@ class NewsItem extends React.Component {
                     <p>from {article.source.name}</p>
                 </div>
                 <div className="content">
-                    <p>{article.content ? this.trim(article.content) : ""}</p>
+                    <p>{article.content ? trim(article.content) : ""}</p>
                 </div>
             </div>
         )

@@ -1,20 +1,13 @@
 // components/NewsBlock.js
 import "./NewsBlock.scss";
-import React, { useRef, useEffect } from "react";
-const fetch = require("isomorphic-unfetch");
 import NewsItem from "./NewsItem";
-
-//const endRef = useRef(null);
+const fetch = require('../util/clientFetch');
 
 class NewsBlock extends React.Component {
 
     constructor() {
         super();
         this.state = { fetched: false };
-    }
-
-    componentDidUpdate() {
-
     }
 
     updateNews(news) {
@@ -24,16 +17,15 @@ class NewsBlock extends React.Component {
         });
     }
 
-    render() {
+    componentDidMount() {
         if(!this.state.fetched) {
-            fetch("http://localhost:3001/api/news").then(res => res.json())
-            .then((data) => {
+            fetch(document, '/api/news', true).then(data => {
                 this.updateNews(data);
             })
-            .catch((err) => {
-                console.error(err);
-            });
         }
+    }
+
+    render() {
         if(this.state.news) {
             return (
                 <div className="NewsBlock" >

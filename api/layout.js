@@ -2,6 +2,8 @@
 const router = require('express').Router();
 const fetch = require('isomorphic-unfetch');
 
+// TODO: maybe replace unfetch with axios
+
 router.get('/', (req, res) => {
     console.log("HTTP GET on /api/layout/");
     fetch(`http://localhost:3002/api/layout`)
