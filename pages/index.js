@@ -8,6 +8,7 @@ import NewsBlock from "../components/NewsBlock";
 import NasaBlock from "../components/NasaBlock";
 import JokeBlock from "../components/JokeBlock";
 import CatsBlock from "../components/CatsBlock";
+import ClockBlock from "../components/ClockBlock";
 
 
 // Style sheet
@@ -74,7 +75,7 @@ class Index extends React.Component {
             });
         }
     }
-    
+
     componentWillUnmount() {
         clearInterval(this.timer);
     }
@@ -91,11 +92,11 @@ class Index extends React.Component {
                 <div className="topGrid">
                     <NewsBlock />
                     <div className="mainGrid">
-                        {this.state.layout.objects.map((item) => {
+                        {this.state.layout.map((item) => {
                             if (item.type == "moduleA") {
                                 return (<div className="item" key={uuid()}><ModuleA text={item.text} /></div>);
                             } else if (item.type == "moduleB") {
-                                return (<div className="item" key={uuid()}><ModuleB text={item.text} /></div>);
+                                return (<div className="item" key={uuid()}><ModuleB title={item.title} text={item.text} /></div>);
                             } else if (item.type == "NewsBlock") {
                                 return (<div className="news" key={uuid()}><NewsBlock /></div>);
                             } else if (item.type == "NasaBlock") {
@@ -104,6 +105,8 @@ class Index extends React.Component {
                                 return (<div className="item" key={uuid()}><JokeBlock /></div>);
                             } else if (item.type == "CatsBlock") {
                                 return (<div className="item" key={uuid()}><CatsBlock /></div>);
+                            } else if (item.type == "ClockBlock") {
+                                return (<div className="item" key={uuid()}><ClockBlock/></div>)
                             }
                         })}
                     </div>

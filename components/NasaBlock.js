@@ -21,6 +21,11 @@ class NasaBlock extends React.Component {
     componentDidMount() {
         if (!this.state.fetched) {
             this.fetchApod().then((res) => {
+                if(!res.url) {
+                    setTimeout(() => {
+                        this.fetchApod()
+                    }, 1000)
+                }
                 this.setState({ fetched: true, apod: res });
             })
         }

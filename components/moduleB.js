@@ -3,7 +3,7 @@ import "./moduleB.scss";
 
 const moduleB = props => (
     <div className="moduleA">
-        <p>This is module B<br/></p>
+        <p>{props.title}<br/></p>
         <p>{props.text}</p>
     </div>
 );

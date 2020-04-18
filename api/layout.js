@@ -6,7 +6,11 @@ const fetch = require('isomorphic-unfetch');
 
 router.get('/', (req, res) => {
     console.log("HTTP GET on /api/layout/");
-    fetch(`http://localhost:3002/api/layout`)
+    let uri = `http://localhost:3002/api/layout`
+    if(process.env.PRODUCTION) {
+        uri = "https://gonzaga-iot-back.azurewebsites.net/api/layout"
+    }
+    fetch(uri)
         .then((layout) => {
             layout.json()
                 .then((jslayout) => {
