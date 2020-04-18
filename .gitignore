@@ -105,3 +105,6 @@ dist
 
 # credentials which will be distrubuted manually
 creds/
+
+.vscode/
+.deployment

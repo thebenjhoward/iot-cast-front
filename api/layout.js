@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     console.log("HTTP GET on /api/layout/");
     let uri = `http://localhost:3002/api/layout`
     if(process.env.PRODUCTION) {
-        uri = "https://gonzaga-iot-back.azurewebsites.net/api/layout"
+        uri = "http://gonzaga-iot-back.azurewebsites.net/api/layout"
     }
     fetch(uri)
         .then((layout) => {
